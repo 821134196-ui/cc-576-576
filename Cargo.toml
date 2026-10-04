@@ -1,0 +1,27 @@
+[package]
+name = "visitor-net"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "visitor_net"
+path = "src/lib.rs"
+
+[[bin]]
+name = "visitor-net"
+path = "src/main.rs"
+
+[dependencies]
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+sqlx = { version = "0.8", default-features = false, features = ["runtime-tokio-rustls", "sqlite", "chrono", "macros"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+tower-http = { version = "0.5", features = ["fs"] }
+rand = "0.8"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[dev-dependencies]
+reqwest = { version = "0.12", features = ["json"] }
